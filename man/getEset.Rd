@@ -10,8 +10,7 @@ This function is called without any arguments to load data for the workshop.
 \usage{
 getEset()
 }
-%- maybe also 'usage' for other objects documented here.
-}
+
 \value{
 No value is returned, but an ExpressionSet called 'eset' is loaded into
 the user's workspace
