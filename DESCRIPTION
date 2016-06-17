@@ -9,7 +9,7 @@ Description: This is a package for the annotation workshop, presented
 	     at BioC 2016
 License: Artistic-2.0
 VignetteBuilder: knitr
-Depends: knitr, org.Hs.eg.db,
+Depends: rmarkdown, knitr, org.Hs.eg.db,
 	 TxDb.Hsapiens.UCSC.hg19.knownGene, EnsDb.Hsapiens.v79,
 	 Homo.sapiens, BSgenome, BSgenome.Hsapiens.UCSC.hg19,
 	 hugene20sttranscriptcluster.db, AnnotationDbi, biomaRt
