@@ -35,6 +35,7 @@ ul > li:before {
 
 ```{r setup, include = FALSE}
 
+library(BiocAnno2016)
 library(hugene20sttranscriptcluster.db)
 library(EnsDb.Hsapiens.v79)
 library(org.Hs.eg.db)
