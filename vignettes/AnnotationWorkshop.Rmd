@@ -77,7 +77,7 @@ load(system.file("/extdata/eset.Rdata","BiocAnno2016"))
 
 ```
 
-```{r}
+```{r, eval = FALSE}
 
 getEset()
 eset
