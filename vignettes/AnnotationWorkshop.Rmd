@@ -70,6 +70,13 @@ The end result might be as simple as a data.frame or HTML table, or as complex a
 
 ## ExpressionSet
 
+```{r, include = FALSE}
+
+load(system.file("/extdata/eset.Rdata","BiocAnno2016"))
+
+
+```
+
 ```{r}
 
 getEset()
