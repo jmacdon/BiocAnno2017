@@ -73,7 +73,7 @@ The end result might be as simple as a data.frame or HTML table, or as complex a
 
 ```{r}
 
-getEset()
+load(system.file("data/eset.Rdata", package = "BiocAnno2016"))
 eset
 
 ```
