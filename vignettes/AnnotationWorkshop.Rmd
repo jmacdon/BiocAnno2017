@@ -31,7 +31,9 @@ ul > li:before {
 
 - Learn the basics of querying these resources
 
-- Other stuff
+- Prosetylize for Bioconductor containers
+
+- Get in some practice
 
 ```{r setup, include = FALSE}
 
@@ -294,7 +296,7 @@ to make queries
 
 select(TxDb.Hsapiens.UCSC.hg19.knownGene, c("1","10"),
        c("TXNAME","TXCHROM","TXSTART","TXEND"), "GENEID")
-select(EnsDb.Mmusculus.v79, c("11287", "11298"),
+select(EnsDb.Hsapiens.v79, c("1", "10"),
        c("GENEID","GENENAME","SEQNAME","GENESEQSTART","GENESEQEND"), "ENTREZID")
 
 ```
@@ -475,7 +477,7 @@ hub <- AnnotationHub()
 
 ```
 
-```{r, eval = FALSE}
+```{r}
 
 library(AnnotationHub)
 hub <- AnnotationHub()
@@ -496,6 +498,12 @@ queries are based on
 * Species
 
 * Data source
+
+```{r}
+
+names(mcols(hub))
+
+```
 
 
 ## AnnotationHub Data providers
@@ -546,7 +554,7 @@ qry$sourceurl
 
 ## Selecting AnnotationHub resource
 
-```{r}
+```{r, message = FALSE}
 
 whatIwant <- qry[["AH50377"]]
 
@@ -640,7 +648,7 @@ getBM(c("affy_hg_u95av2", "hgnc_symbol"), c("affy_hg_u95av2"), "1007_s_at", mart
 
 ## biomaRt exercises
 
-* Get the Ensembl gene IDs for Entrez Gene IDs 672, 5468 and 7157
+* Get the Ensembl gene IDs and HUGO symbol for Entrez Gene IDs 672, 5468 and 7157
 
-* 
+* What do you get if you query for the 'gene_exon' for GAPDH?
 
