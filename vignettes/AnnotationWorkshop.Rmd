@@ -43,6 +43,7 @@ library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 library(Homo.sapiens)
 library(BSgenome)
 library(BSgenome.Hsapiens.UCSC.hg19)
+library(AnnotationHub)
 
 
 ```
@@ -468,6 +469,7 @@ them.
 
 ```{r, include = FALSE}
 
+library(AnnotationHub)
 hub <- AnnotationHub()
 
 
@@ -620,7 +622,7 @@ listing can be accessed using
 
 atrib <- listAttributes(mart)
 filts <- listFilters(mart)
-heat(atrib)
+head(atrib)
 head(filts)
 
 
