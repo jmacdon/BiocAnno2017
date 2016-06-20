@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Bioconductor Annotation Resources"
 author: "James W. MacDonald"
-date: "`r Sys.Date()`"
+date: 26 June | Bioc 2016
 output:
   ioslides_presentation:
     fig_retina: null
@@ -31,7 +31,7 @@ ul > li:before {
 
 - Learn the basics of querying these resources
 
-- Prosetylize for Bioconductor containers
+- Advocate for Bioconductor data structures
 
 - Get in some practice
 
@@ -527,6 +527,7 @@ unique(hub$rdataclass)
 
 head(unique(hub$species))
 length(unique(hub$species))
+nrow(mcols(hub))
 
 ```
 ## AnnotationHub Data sources
@@ -642,7 +643,8 @@ A simple example query
 
 ```{r}
 
-getBM(c("affy_hg_u95av2", "hgnc_symbol"), c("affy_hg_u95av2"), "1007_s_at", mart)
+afyids <- c("1000_at","1001_at","1002_f_at","1007_s_at")
+getBM(c("affy_hg_u95av2", "hgnc_symbol"), c("affy_hg_u95av2"), afyids, mart)
 
 ```
 
