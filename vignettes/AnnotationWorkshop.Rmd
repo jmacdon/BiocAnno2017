@@ -31,7 +31,7 @@ ul > li:before {
 
 - Learn the basics of querying these resources
 
-- Advocate for Bioconductor data structures
+- Discuss annotations in regard to Bioc data structures
 
 - Get in some practice
 
@@ -116,6 +116,8 @@ head(pData(featureData(eset)))
 
 * Difficult to create
 
+* Cumbersome to extract data by hand
+
 * Useful only within R
 
 ## Annotation sources
@@ -171,16 +173,16 @@ select(hugene20sttranscriptcluster.db, ids, "SYMBOL")
 
 How do you know what the central keys are?
 
->- If it's a ChipDb, the central key are the manufacturer's probe IDs
+* If it's a ChipDb, the central key are the manufacturer's probe IDs
 
->- It's sometimes in the name - org.Hs.eg.db, where 'eg' means Entrez
->  Gene ID
+* It's sometimes in the name - org.Hs.eg.db, where 'eg' means Entrez
+  Gene ID
 
->- You can see examples using e.g., head(keys(*annopkg*)), and infer
->  from that
+* You can see examples using e.g., head(keys(*annopkg*)), and infer
+  from that
 
->- But note that it's never necessary to know the central key, as long
->  as you specify the keytype
+* But note that it's never necessary to know the central key, as long
+  as you specify the keytype
 
 ## More questions!
 
