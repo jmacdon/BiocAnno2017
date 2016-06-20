@@ -527,7 +527,7 @@ unique(hub$rdataclass)
 
 head(unique(hub$species))
 length(unique(hub$species))
-nrow(mcols(hub))
+
 
 ```
 ## AnnotationHub Data sources
