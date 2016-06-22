@@ -1,7 +1,7 @@
 Package: BiocAnno2016
 Type: Package
 Title: Package for Bioconductor 2016 annotation workshop
-Version: 1.0
+Version: 1.1
 Date: 2016-06-17
 Author: James W. MacDonald
 Maintainer: James W. MacDonald <jmacdon@uw.edu>
@@ -13,5 +13,5 @@ Depends: org.Hs.eg.db,
 	 TxDb.Hsapiens.UCSC.hg19.knownGene, EnsDb.Hsapiens.v79,
 	 Homo.sapiens, BSgenome, BSgenome.Hsapiens.UCSC.hg19,
 	 hugene20sttranscriptcluster.db, AnnotationDbi, biomaRt,
-	 AnnotationHub
+	 AnnotationHub, EnsDb.Mmusculus.v79
 Suggests: rmarkdown, knitr
