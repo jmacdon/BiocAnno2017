@@ -1,35 +1,25 @@
-\name{BiocAnno2016-package}
-\alias{BiocAnno2016-package}
-\alias{BiocAnno2016}
+\name{BiocAnno2017-package}
+\alias{BiocAnno2017-package}
+\alias{BiocAnno2017}
 \docType{package}
 \title{
-\packageTitle{BiocAnno2016}
+\packageTitle{BiocAnno2017}
 }
 \description{
-\packageDescription{BiocAnno2016}
+\packageDescription{BiocAnno2017}
 }
 \details{
 
 The DESCRIPTION file:
-\packageDESCRIPTION{BiocAnno2016}
-\packageIndices{BiocAnno2016}
+\packageDESCRIPTION{BiocAnno2017}
+\packageIndices{BiocAnno2017}
 ~~ An overview of how to use the package, including the most important ~~
 ~~ functions ~~
 }
 \author{
-\packageAuthor{BiocAnno2016}
+\packageAuthor{BiocAnno2017}
 
-Maintainer: \packageMaintainer{BiocAnno2016}
-}
-\references{
-~~ Literature or other references for background information ~~
+Maintainer: \packageMaintainer{BiocAnno2017}
 }
 
 \keyword{ package }
-\seealso{
-~~ Optional links to other man pages, e.g. ~~
-~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
-}
-\examples{
-~~ simple examples of the most important functions ~~
-}

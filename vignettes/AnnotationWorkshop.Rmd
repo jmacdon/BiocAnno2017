@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Bioconductor Annotation Resources"
 author: "James W. MacDonald"
-date: 26 June | Bioc 2016
+date: 26 June | Bioc 2017
 output:
   ioslides_presentation:
     fig_retina: null
@@ -37,7 +37,7 @@ ul > li:before {
 
 ```{r setup, include = FALSE}
 
-library(BiocAnno2016)
+library(BiocAnno2017)
 library(hugene20sttranscriptcluster.db)
 library(EnsDb.Mmusculus.v79)
 library(org.Hs.eg.db)
@@ -76,7 +76,7 @@ The end result might be as simple as a data.frame or HTML table, or as complex a
 
 ```{r}
 
-load(system.file("data/eset.Rdata", package = "BiocAnno2016"))
+load(system.file("extdata/eset.Rdata", package = "BiocAnno2017"))
 eset
 
 ```
