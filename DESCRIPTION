@@ -6,7 +6,7 @@ Date: 2017-07-10
 Author: James W. MacDonald
 Maintainer: James W. MacDonald <jmacdon@uw.edu>
 Description: This is a package for the annotation workshop, presented
-	     at BioC 2017
+	     at BioC 2017.
 License: Artistic-2.0
 VignetteBuilder: knitr
 Depends: org.Hs.eg.db,
