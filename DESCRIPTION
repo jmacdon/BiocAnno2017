@@ -1,7 +1,7 @@
 Package: BiocAnno2017
 Type: Package
 Title: Package for Bioconductor 2017 annotation workshop
-Version: 1.1
+Version: 1.2
 Date: 2017-07-10
 Author: James W. MacDonald
 Maintainer: James W. MacDonald <jmacdon@uw.edu>

@@ -35,7 +35,7 @@ ul > li:before {
 
 - Get in some practice
 
-```{r setup, include = FALSE}
+```{r setup, include = FALSE, warning = FALSE}
 
 library(BiocAnno2017)
 library(hugene20sttranscriptcluster.db)
@@ -74,7 +74,7 @@ The end result might be as simple as a data.frame or HTML table, or as complex a
 ## ExpressionSet
 
 
-```{r}
+```{r, warning = FALSE}
 
 load(system.file("extdata/eset.Rdata", package = "BiocAnno2017"))
 eset
@@ -82,7 +82,7 @@ eset
 ```
 ## ExpressionSet (continued)
 
-```{r}
+```{r, warning = FALSE}
 
 head(exprs(eset))
 head(pData(phenoData(eset)))
@@ -92,7 +92,7 @@ head(pData(phenoData(eset)))
 ```
 ## ExpressionSet (continued)
 
-```{r}
+```{r, warning = FALSE}
 
 head(pData(featureData(eset)))
 
@@ -122,7 +122,7 @@ head(pData(featureData(eset)))
 
 ## Annotation sources
 
-```{r, results = "asis", echo = FALSE}
+```{r, results = "asis", echo = FALSE, warning = FALSE}
 
 df <- data.frame("Package type" = c("ChipDb","OrgDb","TxDb/EnsDb","OrganismDb","BSgenome","Others","AnnotationHub","biomaRt"),
                  Example = c("hugene20sttranscriptcluster.db","org.Hs.eg.db","TxDb.Hsapiens.UCSC.hg19.knownGene; EnsDb.Hsapiens.v75",
@@ -156,7 +156,7 @@ Say we have analyzed data from an Affymetrix Human Gene ST 2.0 array
 and want to know what the genes are. For purposes of this lab, we
 just select some IDs at random.
 
-```{r}
+```{r, warning = FALSE}
 
 library(hugene20sttranscriptcluster.db)
 set.seed(12345)
@@ -188,7 +188,7 @@ How do you know what the central keys are?
 
 What keytypes or columns are available for a given annotation package?
 
-```{r}
+```{r, warning = FALSE}
 
 keytypes(hugene20sttranscriptcluster.db)
 columns(hugene20sttranscriptcluster.db)
@@ -198,7 +198,7 @@ columns(hugene20sttranscriptcluster.db)
 
 There is one issue with `select` however.
 
-```{r}
+```{r, warning = FALSE}
 
 ids <- c('16737401','16657436' ,'16678303')
 select(hugene20sttranscriptcluster.db, ids, c("SYMBOL","MAP"))
@@ -218,7 +218,7 @@ duplicates
 
     - An additional argument, multiVals used to control duplicates
 
-```{r}
+```{r, warning = FALSE}
 
 mapIds(hugene20sttranscriptcluster.db, ids, "SYMBOL", "PROBEID")
 
@@ -230,7 +230,7 @@ Default is `first`, where we just choose the first of the
 duplicates. Other choices are `list`, `CharacterList`, `filter`,
 `asNA` or a user-specified function.
 
-```{r}
+```{r, warning = FALSE}
 
 mapIds(hugene20sttranscriptcluster.db, ids, "SYMBOL", "PROBEID", multiVals = "list")
 
@@ -239,7 +239,7 @@ mapIds(hugene20sttranscriptcluster.db, ids, "SYMBOL", "PROBEID", multiVals = "li
 
 ## Choices for multiVals (continued)
 
-```{r}
+```{r, warning = FALSE}
 
 mapIds(hugene20sttranscriptcluster.db, ids, "SYMBOL", "PROBEID", multiVals = "CharacterList")
 mapIds(hugene20sttranscriptcluster.db, ids, "SYMBOL", "PROBEID", multiVals = "filter")
@@ -294,7 +294,7 @@ EnsDb.Rnorvegicus.v79
 As with ChipDb and OrgDb packages, `select` and `mapIds` can be used
 to make queries
 
-```{r}
+```{r, warning = FALSE}
 
 select(TxDb.Hsapiens.UCSC.hg19.knownGene, c("1","10"),
        c("TXNAME","TXCHROM","TXSTART","TXEND"), "GENEID")
@@ -310,7 +310,7 @@ The normal use case for transcript packages is to extract positional
 information into a `GRanges` or `GRangesList` object. An example is
 the genomic position of all genes:
 
-```{r}
+```{r, warning = FALSE}
 
 gns <- genes(TxDb.Hsapiens.UCSC.hg19.knownGene)
 gns
@@ -320,7 +320,7 @@ gns
 
 Or the genomic position of all transcripts **by** gene:
 
-```{r}
+```{r, warning = FALSE}
 
 txs <- transcriptsBy(TxDb.Hsapiens.UCSC.hg19.knownGene)
 txs
@@ -347,7 +347,7 @@ powerful!
 `GRanges` and `GRangesLists` act like data.frames and lists, and can
 be subsetted using the `[` function. As a really artificial example:
 
-```{r}
+```{r, warning = FALSE}
 
 txs[txs %over% gns[1:2,]]
 
@@ -388,7 +388,7 @@ and a GO.db package and allow cross-queries between those packages.
 
 All previous accessors work; `select`, `mapIds`, `transcripts`, etc.
 
-```{r}
+```{r, warning = FALSE}
 
 library(Homo.sapiens)
 Homo.sapiens
@@ -404,7 +404,7 @@ Homo.sapiens
 
 * Calls to TxDb accessors include a 'columns' argument
 
-```{r }
+```{r , warning = FALSE}
 
 head(genes(Homo.sapiens, columns = c("ENTREZID","ALIAS","UNIPROT")),4)
 
@@ -427,7 +427,7 @@ BSgenome packages contain sequence information for a given
 species/build. There are many such packages - you can get a listing
 using `available.genomes`
 
-```{r}
+```{r, warning = FALSE}
 
 library(BSgenome)
 head(available.genomes())
@@ -437,7 +437,7 @@ head(available.genomes())
 
 We can load and inspect a BSgenome package
 
-```{r}
+```{r, warning = FALSE}
 
 library(BSgenome.Hsapiens.UCSC.hg19)
 Hsapiens
@@ -450,7 +450,7 @@ The main accessor is `getSeq`, and you can get data by sequence (e.g.,
 entire chromosome or unplaced scaffold), or by
 passing in a GRanges object, to get just a region.
 
-```{r}
+```{r, warning = FALSE}
 
 getSeq(Hsapiens, "chr1")
 getSeq(Hsapiens, gns["5467",])
@@ -479,7 +479,7 @@ hub <- AnnotationHub()
 
 ```
 
-```{r}
+```{r, warning = FALSE}
 
 library(AnnotationHub)
 hub <- AnnotationHub()
@@ -501,7 +501,7 @@ queries are based on
 
 * Data source
 
-```{r}
+```{r, warning = FALSE}
 
 names(mcols(hub))
 
@@ -510,7 +510,7 @@ names(mcols(hub))
 
 ## AnnotationHub Data providers
 
-```{r}
+```{r, warning = FALSE}
 
 unique(hub$dataprovider)
 
@@ -518,14 +518,14 @@ unique(hub$dataprovider)
 
 ## AnnotationHub Data classes
 
-```{r}
+```{r, warning = FALSE}
 
 unique(hub$rdataclass)
 
 ```
 ## AnnotationHub Species
 
-```{r}
+```{r, warning = FALSE}
 
 head(unique(hub$species))
 length(unique(hub$species))
@@ -534,14 +534,14 @@ length(unique(hub$species))
 ```
 ## AnnotationHub Data sources
 
-```{r}
+```{r, warning = FALSE}
 
 unique(hub$sourcetype)
 
 ```
 ## AnnotationHub query
 
-```{r}
+```{r, warning = FALSE}
 
 qry <- query(hub, c("granges","homo sapiens","ensembl"))
 qry
@@ -549,7 +549,7 @@ qry
 ```
 ## AnnotationHub query
 
-```{r}
+```{r, warning = FALSE}
 
 qry$sourceurl
 
@@ -557,14 +557,14 @@ qry$sourceurl
 
 ## Selecting AnnotationHub resource
 
-```{r, message = FALSE}
+```{r, message = FALSE, warning = FALSE}
 
 whatIwant <- qry[["AH50377"]]
 
 ```
 We can use these data as they are, or convert to a TxDb format:
 
-```{r}
+```{r, warning = FALSE}
 
 GRCh38TxDb <- makeTxDbFromGRanges(whatIwant)
 GRCh38TxDb
@@ -583,7 +583,7 @@ GRCh38TxDb
 The biomaRt package allows queries to an Ensembl Biomart server. We
 can see the choices of servers that we can use:
 
-```{r}
+```{r, warning = FALSE}
 
 library(biomaRt)
 listMarts()
@@ -594,7 +594,7 @@ listMarts()
 And we can then check for the available data sets on a particular
 server.
 
-```{r}
+```{r, warning = FALSE}
 
 mart <- useMart("ENSEMBL_MART_ENSEMBL")
 head(listDatasets(mart))
@@ -605,7 +605,7 @@ head(listDatasets(mart))
 After setting up a `mart` object pointing to the server and data set
 that we care about, we can make queries. We first set up the `mart` object.
 
-```{r}
+```{r, warning = FALSE}
 
 mart <- useMart("ENSEMBL_MART_ENSEMBL","hsapiens_gene_ensembl")
 
@@ -629,7 +629,7 @@ where
 Both attributes and filters have rather inscrutable names, but a
 listing can be accessed using
 
-```{r}
+```{r, warning = FALSE}
 
 atrib <- listAttributes(mart)
 filts <- listFilters(mart)
@@ -643,7 +643,7 @@ head(filts)
 
 A simple example query
 
-```{r}
+```{r, warning = FALSE}
 
 afyids <- c("1000_at","1001_at","1002_f_at","1007_s_at")
 getBM(c("affy_hg_u95av2", "hgnc_symbol"), c("affy_hg_u95av2"), afyids, mart)
